@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  question: MyString
+  answer: MyString
+  points: 1
+  no_of_attempted: 1
+  submitted_by: MyString
+
+two:
+  question: MyString
+  answer: MyString
+  points: 1
+  no_of_attempted: 1
+  submitted_by: MyString

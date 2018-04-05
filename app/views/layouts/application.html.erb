@@ -28,9 +28,9 @@
         <a class="navbar-brand" href="#">TrivaGame</a>
         <div class="navbar-collapse collapse navbar-responsive-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><%= link_to "Play Trivia", "/game/index"  %></li>
-            <li><%= link_to "Add Trivia", "/game/new"  %></li>
-            <li><%= link_to "Score Board", "/game/scoreboard"  %></li>
+            <li class="active"><%= link_to "Play Trivia", "/"  %></li>
+            <li><%= link_to "Add Trivia", "/posts/new"  %></li>
+            <li><%= link_to "Score Board", "/posts/scoreboard"  %></li>
             <% if (current_user) %>
             <li><%= link_to "Sign Out" , destroy_user_session_path , method: :delete %></li>
             <% end %>
