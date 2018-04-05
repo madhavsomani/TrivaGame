@@ -10,6 +10,9 @@ class PostsController < ApplicationController
 
   def show
      @post = Post.find(params[:id])
+     @answerstate = State.new
+     @answerstate.answercount = 0
+
 
   end
 
@@ -29,17 +32,38 @@ class PostsController < ApplicationController
 
   def verify_trivia_answer
 
-       @useranswer = params[:post][:answer]
-      @databaseanswer = Post.find(params[:post][:question_id]).answer
-      puts @databaseanswer.inspect
-      puts @useranswer.inspect
+    @post = Post.find(params[:post][:question_id])
+    @useranswer = params[:post][:answer]
+    @databaseanswer = Post.find(params[:post][:question_id]).answer
+    @currentuser = User.find_by_email(current_user.email)
 
-        if @useranswer ==  @databaseanswer
-          redirect_to action: "index"
-        else
+    @answerstate = State.new
+    @answerstate.answercount = 0
 
-        end
 
-       end
+    if @useranswer.downcase == @databaseanswer.downcase
 
+      @currentuser.score = @currentuser.score + 4
+      @currentuser.save
+      @answerstate.answerflag = "true"
+      @answerstate.answercount += 1
+
+    else
+      if @currentuser.score != 0
+          @currentuser.score = @currentuser.score - 1
+          @currentuser.save
+      end
+      @answerstate.answerflag = "false"
+      @answerstate.answercount += 1
+
+    end
+
+    render 'show'
+
+  end
+
+end
+
+class State
+  attr_accessor :answerflag, :answercount
 end

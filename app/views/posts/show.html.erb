@@ -1,3 +1,12 @@
+
+<% if @answerstate.answercount != 0%>
+  <% if @answerstate.answerflag == "false"%>
+    <div class="alert alert-danger"><strong>Wrong Answer!</strong> Try again</div>
+    <% else %>
+    <div class="alert alert-success"> <strong>Correct Answer!</strong> Try Next Question </div>
+  <% end %>
+
+<% end %>
 <h1>Q. <%= @post.question %></h1>
 <%= form_for :post , url: verify_answer_path  do |f| %>
   <p>
