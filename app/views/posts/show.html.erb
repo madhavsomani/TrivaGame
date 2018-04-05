@@ -1,12 +1,13 @@
 <h1>Q. <%= @post.question %></h1>
-<%= form_for :triviaanswer, url: {action: "verify_trivia_answer" } do |f| %>
+<%= form_for :post , url: verify_answer_path  do |f| %>
   <p>
-    <%= f.label 'Answer' %><br>
-    <%= f.text_field(:answer, {:class => 'form-control'}) %>
+
+    <%= f.text_field :answer , ({:value => '',:placeholder => 'Your Answer' , :class => 'form-control'}) %>
     <%= f.hidden_field :question_id, :value => @post.id %>
   </p>
-
-  <p><%= @post.points %></p>
+  <p>
+  <span class="label label-pill label-success">Points : <%= @post.points %></span>
+  </p>
 
   <p>
     <%= f.submit("Submit" , {:class => 'btn btn-primary'}) %>

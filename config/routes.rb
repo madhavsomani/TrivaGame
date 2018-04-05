@@ -2,7 +2,10 @@ Rails.application.routes.draw do
   devise_for :users
   root 'posts#index'
   get 'posts/scoreboard'
-  match '/posts',      to: 'posts#verify_trivia_answer', via: 'post'
+  post 'verify_answer' => 'posts#verify_trivia_answer', as: :verify_answer
+
+
+
   resources :posts
 
 
