@@ -1,3 +1,14 @@
-<h1><%= @post.question %></h1>
-<p><%= @post.answer %></p>
-<p><%= @post.points %></p>
+<h1>Q. <%= @post.question %></h1>
+<%= form_for :triviaanswer, url: {action: "verify_trivia_answer" } do |f| %>
+  <p>
+    <%= f.label 'Answer' %><br>
+    <%= f.text_field(:answer, {:class => 'form-control'}) %>
+    <%= f.hidden_field :question_id, :value => @post.id %>
+  </p>
+
+  <p><%= @post.points %></p>
+
+  <p>
+    <%= f.submit("Submit" , {:class => 'btn btn-primary'}) %>
+  </p>
+<% end %>
