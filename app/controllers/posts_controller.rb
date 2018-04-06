@@ -6,6 +6,8 @@ class PostsController < ApplicationController
 
   def new
 
+    @post = Post.new
+
   end
 
   def show
@@ -23,7 +25,7 @@ class PostsController < ApplicationController
     @post.submitted_by = current_user.email
     @post.save
 
-    redirect_to action: "index"
+    redirect_to new_post_path
   end
 
   private def post_params
