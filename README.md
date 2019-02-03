@@ -1,24 +1,5 @@
-# README
+# TrivaGame
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+a trivia game or competition is one where the competitors are asked questions. 
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+HTML | CSS | JavaScript | Ruby on Rails 
